@@ -187,47 +187,84 @@ class TournamentController:
             print("No tournament created yet. Please create one")
             return
 
-        else:
-            ReportView.view_list_all_tournaments(data)
-            selected_tournament_id = input(
-                "\nEnter the ID of the tournament to display: ")
+        ReportView.view_list_all_tournaments(data)
+        selected_tournament_id = input(
+            "\nEnter the ID of the tournament to display: ")
 
-            data = TournamentModel.access_tournament_data_id(
+        data = TournamentModel.access_tournament_data_id(
+            selected_tournament_id)
+        selected_tournament_data = data
+        if not selected_tournament_data:
+            print("Invalid tournament id")
+            return
+
+        ReportView.header_info_selected_tournament(
+            selected_tournament_data)
+
+        while True:
+            TournamentController.edit_display_current_round(
                 selected_tournament_id)
-            selected_tournament_data = data
-            ReportView.header_info_selected_tournament(
-                selected_tournament_data)
 
-            while True:
-                TournamentController.edit_display_current_round(
+            # recuperation de current_id
+            current_round = selected_tournament_data.get(
+                "current_round")
+
+            if not current_round:
+                user_input = input(
+                    "\ndo you want to start the first/next round"
+                    "and the first/next game ? (y/n): ")
+
+                if user_input.lower() == "y":
+                    TournamentController.set_ranking(
+                        selected_tournament_id)
+                    RoundController.generate_round(
+                        selected_tournament_id)
+                    TournamentController.edit_display_current_round(
+                        selected_tournament_id)
+                    GameController.generate_game(
+                        selected_tournament_id)
+
+                    print("\n\nRound_1 and games have been genereted.\n")
+
+                    TournamentController.display_selected_tournament(
+                        selected_tournament_id)
+
+                    return TournamentController.navigate_selected_tournament()
+
+                elif user_input.lower() == "n":
+                    return
+
+                else:
+                    print("Invalid user input")
+
+            else:
+                TournamentController.display_selected_tournament(
                     selected_tournament_id)
+                TournamentController.display_ranking(
+                    selected_tournament_id)
+                print("\n[1] edit/end current round")
+                print("[2] start next round")
+                print("\n[exit] return to tournament menu")
 
-                # recuperation de current_id
-                current_round = selected_tournament_data.get(
-                    "current_round")
+                user_input = input("\nenter your choice: ")
 
-                if not current_round:
+                if user_input == "1":
+                    TournamentController.edit_end_current_round(
+                        selected_tournament_id)
+                    TournamentController.update_players_score_and_ranking(
+                        selected_tournament_id)
+
+                elif user_input == "2":
+                    RoundController.generate_round(selected_tournament_id)
+
                     user_input = input(
-                        "\ndo you want to start the first/next round"
-                        "and the first/next game ? (y/n): ")
+                        "\ndo you want to start the next game ? (y/n): \n")
 
                     if user_input == "y":
-                        TournamentController.set_ranking(
-                            selected_tournament_id)
-                        RoundController.generate_round(
-                            selected_tournament_id)
                         TournamentController.edit_display_current_round(
                             selected_tournament_id)
                         GameController.generate_game(
                             selected_tournament_id)
-
-                        print("\n\nRound_1 and games have been genereted.\n")
-
-                        # ReportView.view_list_all_tournaments(data)
-                        TournamentController.display_selected_tournament(
-                            selected_tournament_id)
-
-                        return TournamentController.navigate_selected_tournament()
 
                     elif user_input == "n":
                         return
@@ -235,46 +272,11 @@ class TournamentController:
                     else:
                         print("Invalid user input")
 
+                elif user_input == "exit":
+                    return
+
                 else:
-                    TournamentController.display_selected_tournament(
-                        selected_tournament_id)
-                    TournamentController.display_ranking(
-                        selected_tournament_id)
-                    print("\n[1] edit/end current round")
-                    print("[2] start next round")
-                    print("\n[exit] return to tournament menu")
-
-                    user_input = input("\nenter your choice: ")
-
-                    if user_input == "1":
-                        TournamentController.edit_end_current_round(
-                            selected_tournament_id)
-                        TournamentController.update_players_score_and_ranking(
-                            selected_tournament_id)
-
-                    elif user_input == "2":
-                        RoundController.generate_round(selected_tournament_id)
-
-                        user_input = input(
-                            "\ndo you want to start the next game ? (y/n): \n")
-
-                        if user_input == "y":
-                            TournamentController.edit_display_current_round(
-                                selected_tournament_id)
-                            GameController.generate_game(
-                                selected_tournament_id)
-
-                        elif user_input == "n":
-                            return
-
-                        else:
-                            print("Invalid user input")
-
-                    elif user_input == "exit":
-                        return
-
-                    else:
-                        print("Invalid user input")
+                    print("Invalid user input")
 
     @staticmethod
     def edit_end_current_round(selected_tournament_id):
@@ -306,7 +308,7 @@ class TournamentController:
                         f"Please enter {game["gamer_1"]}'s score win = 1,"
                         "loose = 0 , tie = 0.5:"))
                 except ValueError:
-                    print("invalid entry pleaseselect win:1,"
+                    print("invalid entry please select win:1,"
                           "loose:0 or tie: 0.5")
                     return
 

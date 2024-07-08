@@ -54,7 +54,7 @@ class GameController:
         if current_round == 1:
             # copie de la liste des joueurs enregistrés pour manipulation
             registered_players_copy = registered_players.copy()
-            games= []
+            games = []
             game_id = 1
 
             while len(registered_players_copy) >= 2:
@@ -65,13 +65,13 @@ class GameController:
                 registered_players_copy.remove(gamer_2)
 
                 game = GameModel(game_id=game_id,
-                                gamer_1=gamer_1,
-                                color_gamer_1="",
-                                score_gamer_1=0,
-                                gamer_2=gamer_2,
-                                color_gamer_2="",
-                                score_gamer_2=0,
-                                )
+                                 gamer_1=gamer_1,
+                                 color_gamer_1="",
+                                 score_gamer_1=0,
+                                 gamer_2=gamer_2,
+                                 color_gamer_2="",
+                                 score_gamer_2=0,
+                                 )
 
                 game.game_assign_colors()
                 new_game = (
@@ -95,38 +95,38 @@ class GameController:
             # recuperation des precedents match joués
             previous_game = []
             for round_data in selected_round:
-                for game in round_data.get("games",[]):
+                for game in round_data.get("games", []):
                     previous_game.append(
                         (game["gamer_1"], game["gamer_2"]))
 
-            # choix des joueurs du nouveau match par rapport au classement 
+            # choix des joueurs du nouveau match par rapport au classement
             for i in range(0, len(ranking_sorted), 2):
-                player_1 =ranking_sorted[i]["player_id"]
-                player_2 =ranking_sorted[i+1]["player_id"]
+                player_1 = ranking_sorted[i]["player_id"]
+                player_2 = ranking_sorted[i+1]["player_id"]
 
                 # verification pour savoir si le match a deja ete joué,
                 # et si oui ne pas generer la paire
-                if (player_1,player_2) in previous_game or (player_2,player_1) in previous_game:
+                if (player_1, player_2) in previous_game or (player_2, player_1) in previous_game:
                     continue
 
                 # creation du match par appel de la class game
-                game =GameModel(game_id=game_id,
-                                gamer_1=player_1,
-                                color_gamer_1="",
-                                score_gamer_1=0,
-                                gamer_2=player_2,
-                                color_gamer_2="",
-                                score_gamer_2=0)   
+                game = GameModel(game_id=game_id,
+                                 gamer_1=player_1,
+                                 color_gamer_1="",
+                                 score_gamer_1=0,
+                                 gamer_2=player_2,
+                                 color_gamer_2="",
+                                 score_gamer_2=0)
                 game.game_assign_colors()
                 new_game = GameModel.game_convert_to_dict(game)
                 games.append(new_game)
                 game_id += 1
-            
+
         # maj des matchs dans le current round
         selected_round_info["games"] = games
         selected_round[int(current_round) - 1] = selected_round_info
 
-        #insertion du game model dans la db par remontée d'étape
-        selected_tournament_data["rounds"]= selected_round
+        # insertion du game model dans la db par remontée d'étape
+        selected_tournament_data["rounds"] = selected_round
         TournamentModel.update_tournament_data_by_id(
             selected_tournament_id, selected_tournament_data)

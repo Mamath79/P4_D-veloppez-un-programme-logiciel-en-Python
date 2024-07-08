@@ -72,7 +72,7 @@ class TournamentController:
 
         selected_players = []
         while len(selected_players) < user_input:
-            
+
             print("\n ####  Availabble player list  ####\n")
             ReportView.view_list_all_players(available_players)
 
@@ -92,7 +92,6 @@ class TournamentController:
                     if str(player['ID']) != player_id:
                         updated_available_players.append(player)
                 available_players = updated_available_players
-                   
 
         tournament.set_players(selected_players)
         return tournament
@@ -366,7 +365,7 @@ class TournamentController:
         def player_ranking_dict(player_id):
             player_ranking_dict = {"player_id": player_id,
                                    "player_score": 0,
-                                   "player_ranking": 0 }
+                                   "player_ranking": 0}
             return player_ranking_dict
 
         ranking_list = []
@@ -400,10 +399,10 @@ class TournamentController:
             for player in ranking:
                 if player['player_id'] == game['gamer_1']:
                     player["player_score"] = float(
-                        player["player_score"])+ float(game['score_gamer_1'])
+                        player["player_score"]) + float(game['score_gamer_1'])
                 elif player['player_id'] == game['gamer_2']:
                     player["player_score"] = float(
-                        player["player_score"])+ float(game['score_gamer_2'])
+                        player["player_score"]) + float(game['score_gamer_2'])
 
         # Trier les joueurs par score décroissant
         ranking = sorted(ranking, key=lambda x: x['player_score'],

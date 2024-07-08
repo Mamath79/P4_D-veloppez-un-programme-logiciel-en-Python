@@ -7,13 +7,13 @@ class RoundController:
 
     def __init__(self):
         pass
-    
+
     @staticmethod
     def generate_round(selected_tournament_id):
 
-        #recuperation du dict du tournois choisi par ID
+        # recuperation du dict du tournois choisi par ID
         selected_tournament_data = TournamentModel.access_tournament_data_id(selected_tournament_id)
-        
+
         # a l'interieur du tournois selectionné , recuperation de la liste des rounds
         rounds_list = selected_tournament_data.get('rounds')
 
@@ -32,19 +32,19 @@ class RoundController:
         if not rounds_list:
             round_id = 1
         else:
-            rounds_ids=[]
+            rounds_ids = []
             for item in rounds_list:
                 rounds_ids.append(item.get("round_id"))
                 highest_round_id = max(rounds_ids)
                 round_id = highest_round_id + 1
 
-        #creation de l'objet nouveau round.
+        # creation de l'objet nouveau round.
         new_round = RoundModel(round_id=int(round_id))
         new_round.round_name = f"Round {round_id}"
-        new_round.round_start = datetime.now().strftime ("%Y-%m-%d %H:%M:%S")
+        new_round.round_start = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        #sauvegarde du nouveau round dans le base de donnée
+        # sauvegarde du nouveau round dans le base de donnée
         data_round = RoundModel.round_convert_to_dict(new_round)
         rounds_list.append(data_round)
         selected_tournament_data['rounds'] = rounds_list
-        TournamentModel.update_tournament_data_by_id(selected_tournament_id,selected_tournament_data)           
+        TournamentModel.update_tournament_data_by_id(selected_tournament_id, selected_tournament_data)

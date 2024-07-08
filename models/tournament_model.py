@@ -145,6 +145,7 @@ class TournamentModel:
                     for key, value in row.items():
                         if key in fields_to_display:
                             selected_row[key] = value
+                    table.add_row(selected_row.values())
                 print(table)
 
             elif user_input == "2":
@@ -154,6 +155,7 @@ class TournamentModel:
                     for key, value in row.items():
                         if key in fields_to_display:
                             selected_row[key] = value
+                    table.add_row(selected_row.values())
                 print(table)
 
             elif user_input == "3":

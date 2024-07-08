@@ -3,7 +3,8 @@ class MenuView:
     @staticmethod
     def main_menu():
 
-        print("\n ##### MAIN MENU #####")
+        print("\n\n")
+        print("##### MAIN MENU #####")
 
         print("\n[1] Players")
         print("[2] Tournament")
@@ -14,8 +15,8 @@ class MenuView:
     @staticmethod
     def player_menu():
 
-        print("\n ##### PLAYER MENU #####")
-
+        print("\n")
+        print("##### PLAYER MENU #####")
         print("\n[1] Create new player")
         print("[2] Edit existing player")
         print("[3] List all players")
@@ -25,7 +26,8 @@ class MenuView:
     @staticmethod
     def tournament_menu():
 
-        print("\n ##### TOUNAMENT MENU #####")
+        print("\n")
+        print("##### TOUNAMENT MENU #####")
 
         print("\n[1] Create new tournament")
         print("[2] Edit existing tournament")
@@ -41,11 +43,12 @@ class MenuView:
         print("[2] next round")
 
         print("\n[exit] return to tournament menu")
-    
+
     @staticmethod
     def report_menu():
 
-        print("\n ##### REPORT MENU #####")
+        print("\n")
+        print("##### REPORT MENU #####")
 
         print("\n[1] Report all Players")
         print("[2] Report all Tournament")

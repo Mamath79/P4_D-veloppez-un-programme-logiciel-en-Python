@@ -23,17 +23,21 @@ class ReportView:
             table.add_row(row.values())
 
         # Afficher le tableau
-        print("\n ##### lIST ALL PLAYERS #####")
+        print("\n\n")
+        print("##### LIST ALL PLAYERS #####".center(50))
+        print("\n")
         print(table)
 
     @staticmethod
     def header_info_selected_tournament(selected_tournament_data):
 
-        print((f"\n##### {selected_tournament_data['name']} #####"))
-        print(f"\nLocation: {selected_tournament_data['location']}")
-        print(
-            f"From: {selected_tournament_data['start_date']}"
-            f"to {selected_tournament_data['end_date']}")
+        print("\n")
+        print((f"##### {selected_tournament_data['name']} #####").center(150))
+        print("\n\n")
+        print(f"Location: {selected_tournament_data['location']}".center(150))
+        print("\n")
+        print((f"From: {selected_tournament_data['start_date']}"
+               f"to {selected_tournament_data['end_date']}").center('150'))
         print(
             f"Description: {selected_tournament_data['description']}")
         print(
@@ -42,7 +46,9 @@ class ReportView:
     @staticmethod
     def view_list_all_tournaments(data):
 
-        print("\n ##### lIST ALL TOURNAMENT #####\n")
+        print("\n\n")
+        print("##### LIST ALL TOURNAMENT #####".center(100))
+        print("\n\n")
         ReportView.table_list_tournament(data)
 
     @staticmethod
@@ -50,12 +56,12 @@ class ReportView:
 
         tournaments = data.all()
         table = PrettyTable()
-        
 
         if tournaments:
-            
+
             tournaments_sorted_ID = sorted(
-            tournaments, key=lambda x: x.get("ID_tournament"))
+                tournaments,
+                key=lambda x: x.get("ID_tournament"))
 
             fields_to_display = ['ID_tournament',
                                  'name',

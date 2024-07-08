@@ -435,3 +435,27 @@ class TournamentController:
         ranking = selected_tournament_data.get("ranking")
 
         ReportView.view_registered_and_ranking_players(ranking)
+
+    @staticmethod
+    # methode dont le but est l'affiche ge de toutes les données
+    # sous forme de plusieurs tableaux d'un tournois selectionné
+    def report_selected_tournament():
+
+        data = TournamentModel.tournament_db()
+        if not data:
+            print("No tournament created yet. Please create one")
+            return
+
+        ReportView.view_list_all_tournaments(data)
+        selected_tournament_id = input(
+            "\nEnter the ID of the tournament to display: ")
+
+        selected_tournament_data = TournamentModel.access_tournament_data_id(
+            selected_tournament_id)
+        if not selected_tournament_data:
+            print("Invalid tournament id")
+            return
+
+        ReportView.header_info_selected_tournament(selected_tournament_data)
+        TournamentController.display_selected_tournament(selected_tournament_id)
+        TournamentController.display_ranking(selected_tournament_id)

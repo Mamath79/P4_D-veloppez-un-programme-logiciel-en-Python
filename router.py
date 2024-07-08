@@ -3,6 +3,7 @@ from controllers.tournament_controller import TournamentController
 from views.menu_view import MenuView
 
 
+
 class Router:
 
     @staticmethod
@@ -16,6 +17,8 @@ class Router:
                 Router.navigate_player_menu()
             elif user_input == "2":
                 Router.navigate_tournement_menu()
+            elif user_input == "3":
+                Router.report_menu()
             elif user_input == "exit":
                 exit()
                 break
@@ -61,3 +64,23 @@ class Router:
 
             else:
                 print("Invalid user input")
+
+    @staticmethod
+    # menu destiné a l'affichage des rapports sur les joueurs et les tournois
+    def report_menu():
+
+        while True:
+            MenuView.report_menu()
+            user_input = input("\n enter your choice:")
+            if user_input == "1":
+                PlayerController.display_list_all_players()            
+            elif user_input == "2":
+                TournamentController.display_list_all_tournaments()
+            elif user_input == "3":
+               TournamentController.report_selected_tournament()
+            elif user_input == "exit":
+                break
+
+            else:
+                print("Invalid user input")
+        

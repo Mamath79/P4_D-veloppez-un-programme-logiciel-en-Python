@@ -7,6 +7,7 @@ class MenuView:
 
         print("\n[1] Players")
         print("[2] Tournament")
+        print("[3] Report")
 
         print("\n[exit] quit programme")
 
@@ -38,5 +39,16 @@ class MenuView:
 
         print("[1] edit current round: ")
         print("[2] next round")
+
+        print("\n[exit] return to tournament menu")
+    
+    @staticmethod
+    def report_menu():
+
+        print("\n ##### REPORT MENU #####")
+
+        print("\n[1] Report all Players")
+        print("[2] Report all Tournament")
+        print("[3] Report selected Tournament by id")
 
         print("\n[exit] return to tournament menu")

@@ -1,0 +1,5 @@
+venv
+database/players.json
+database/tournament.json
+/__pycache__
+__pycache__

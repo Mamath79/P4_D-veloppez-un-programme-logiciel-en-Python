@@ -4,9 +4,9 @@ Ce programme a été créé dans le cadre du projet 4 d'OpenClassrooms. Il s'agi
 Veuillez installer Python.
 Lancez ensuite la console, placez vous dans le dossier de votre choix puis clonez ce repository:
 ```
-lien pour telechargement
+git@github.com:Mamath79/P4_Developpez-un-programme-logiciel-en-Python.git
 ```
-Placez vous dans le dossier OC_P4_ChessTournament, puis créez un nouvel environnement virtuel:
+Placez vous dans le dossier OC_P4_CHESSCONTEST, puis créez un nouvel environnement virtuel:
 ```
 python -m venv env
 ```
@@ -29,8 +29,13 @@ python main.py
 ```
 
 ## Utilisation
-Le menu principal est divisé en 4 options.
+Le menu principal est divisé en 3 options.
 ### 1) Gestion des joueurs
+Dans cette section vous pourrez:
+#### 1) creer un profil pour un nouveau joueur
+#### 2) editer les information sur un, joueurs déjà existant
+#### 3) afficher la liste des joueurs créés sous forme de tableau et trier ce tableau en fonction de l'Id du joueur , de sa date de naissance  ou de son nom de famille (ordre alphabetique
+)
 ### 2) Gestion des tournois
 ### 3) Menu destiné a l'affichage des rapport
 

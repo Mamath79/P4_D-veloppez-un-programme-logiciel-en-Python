@@ -24,7 +24,7 @@ class ReportView:
 
         # Afficher le tableau
         print("\n\n")
-        print("##### LIST ALL PLAYERS #####".center(50))
+        print("##### LIST ALL PLAYERS #####")
         print("\n")
         print(table)
 
@@ -32,12 +32,12 @@ class ReportView:
     def header_info_selected_tournament(selected_tournament_data):
 
         print("\n")
-        print((f"##### {selected_tournament_data['name']} #####").center(150))
+        print((f"######### {selected_tournament_data['name']} #########"))
         print("\n\n")
-        print(f"Location: {selected_tournament_data['location']}".center(150))
+        print(f"Location: {selected_tournament_data['location']}")
         print("\n")
-        print((f"From: {selected_tournament_data['start_date']}"
-               f"to {selected_tournament_data['end_date']}").center('150'))
+        print((f"From: {selected_tournament_data['start_date']} "
+               f"to {selected_tournament_data['end_date']}"))
         print(
             f"Description: {selected_tournament_data['description']}")
         print(
@@ -47,7 +47,7 @@ class ReportView:
     def view_list_all_tournaments(data):
 
         print("\n\n")
-        print("##### LIST ALL TOURNAMENT #####".center(100))
+        print("##### LIST ALL TOURNAMENT #####")
         print("\n\n")
         ReportView.table_list_tournament(data)
 

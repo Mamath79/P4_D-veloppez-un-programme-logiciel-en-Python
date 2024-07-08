@@ -53,7 +53,7 @@ class Router:
             if user_input == "1":
                 tournament_controler.add()
             elif user_input == "2":
-                TournamentController.update()
+                TournamentController.update_by_id()
             elif user_input == "3":
                 TournamentController.display_list_all_tournaments()
             elif user_input == "4":

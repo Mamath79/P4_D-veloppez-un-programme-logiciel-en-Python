@@ -104,13 +104,65 @@ class TournamentController:
 
         TournamentModel.save(tournament)
 
-    def update():
-        pass
+    def update_by_id():
 
-        # implementer tournament edit pour les
-        # infos du tournois ou les joueurs selectionnés
+        # methode permettant l'edition d'un tournois déjà présent dans la database
 
-        print("\n ##### UPDATE EXISTING TOURNAMENT #####")
+        while True:
+            print("\n ##### UPDATE EXISTING TOURNAMENT #####")
+
+            # affichage de la liste des tournois pour permettre à
+            # l'utilisateur de choisir par l'id le tournois à modiffier
+            data = TournamentModel.tournament_db()
+            ReportView.view_list_all_tournaments(data)
+            selected_tournament_id = input("\nEnter the ID of the tournament to update: ")
+
+            while True:
+                print("\n which value do you want to update: ")
+                print("[1] tournament name: ")
+                print("[2] tournament location: ")
+                print("[3] start date (yyyy-mm-dd): ")
+                print("[4] end date (yyyy-mm-dd): ")
+                print("[5] description: ")
+                print("[exit] return to player menu: ")
+                user_input = input("\n enter your choice:")
+
+                if user_input == "1":
+                    new_name = input("New tournament name: ")
+                    new_data = {"name": new_name}
+
+                elif user_input == "2":
+                    new_location = input("New location: ")
+                    new_data = {"location": new_location}
+
+                elif user_input == "3":
+                    new_start_date = input("New start date: ")
+                    new_data = {"start_date": new_start_date}
+
+                elif user_input == "4":
+                    new_end_date = input("New end date: ")
+                    new_data = {"end_date": new_end_date}
+
+                elif user_input == "5":
+                    new_description = input("New Description: ")
+                    new_data = {"description": new_description}
+
+                elif user_input == "exit":
+                    MenuView.tournament_menu()
+                    return
+
+                else:
+                    print("invalid user input")
+                    continue
+
+                # Appeler la db et mise à jour de celle ci
+                TournamentModel.update_tournament_data_by_id(selected_tournament_id, new_data)
+
+                data = TournamentModel.tournament_db()
+                ReportView.view_list_all_tournaments(data)
+                print(f"\ntournament ID {selected_tournament_id} has been updated!\n")
+                break
+            break
 
     @staticmethod
     def recall_tournament_db():

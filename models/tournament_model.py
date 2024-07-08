@@ -93,7 +93,7 @@ class TournamentModel:
     @staticmethod
     def update_tournament_data_by_id(selected_tournament_id,
                                      selected_tournament_data):
-        # methode de class servant à updater les metadatas
+        # methode servant à updater les metadatas
         # d'un tournois déjà créer
         data = TournamentModel.tournament_db()
         tournament = Query()

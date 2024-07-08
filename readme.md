@@ -40,6 +40,7 @@ Installez flake8 avec la commande:
 
 ```
 pip intall flake8-html
+```
 
 S'il n'existe pas, créer un fichier setup.cfg pour parametrer Flake 8 de la façon suivante.
 
@@ -51,5 +52,6 @@ Tapez la commande:
 
 ```
 flake8 . --format=html --htmldir=flake8_rapport
+```
 
 Le rapport sera généré dans le dossier flake8.

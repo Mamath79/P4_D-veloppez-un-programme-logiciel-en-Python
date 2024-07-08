@@ -37,17 +37,19 @@ Le menu principal est divisé en 4 options.
 ## Creation rapport Flake 8
 
 Installez flake8 avec la commande:
-pip intall flake8-html
-```
-S'il n'existe pas, créer un fichier setup.cfg
 
-Ecrire le texte suivant dedans:
+```
+pip intall flake8-html
+
+S'il n'existe pas, créer un fichier setup.cfg pour parametrer Flake 8 de la façon suivante.
 
 [flake8]
 exclude = .git, venv, __pycache__, .gitignore
 max-line-length = 119
 
 Tapez la commande:
+
+```
 flake8 . --format=html --htmldir=flake8_rapport
 
 Le rapport sera généré dans le dossier flake8.

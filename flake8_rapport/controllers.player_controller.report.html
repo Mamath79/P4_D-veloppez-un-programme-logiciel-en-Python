@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: controllers/player_controller.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="controllers.player_controller.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               controllers/player_controller.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="F541">
+               <span class="count sev-1">
+                  1
+               </span>
+               <strong>F541:</strong> f-string is missing placeholders
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l118">
+                  <tt><i>118</i>                     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Player has been updated!&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W293">
+               <span class="count sev-2">
+                  10
+               </span>
+               <strong>W293:</strong> blank line contains whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l10">
+                  <tt><i>10</i>             </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l26">
+                  <tt><i>26</i>     </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l40">
+                  <tt><i>40</i>                     </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l45">
+                  <tt><i>45</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l65">
+                  <tt><i>65</i>                 </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l89">
+                  <tt><i>89</i>                         </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l94">
+                  <tt><i>94</i>                     </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l99">
+                  <tt><i>99</i>                         </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l104">
+                  <tt><i>104</i>                         </tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l108">
+                  <tt><i>108</i>                         </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E265">
+               <span class="count sev-2">
+                  7
+               </span>
+               <strong>E265:</strong> block comment should start with '# '
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l15">
+                  <tt><i>15</i>             <span class="c1">#verification si l&#39;id n&#39;est pas déjà present dans la DB</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l49">
+                  <tt><i>49</i>         <span class="c1">#methode de class permettant l&#39;edition d&#39;un joueur déjà présent dans la database</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l54">
+                  <tt><i>54</i>             <span class="c1">#affichage de la liste des joeurs pour permettre à</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l55">
+                  <tt><i>55</i>             <span class="c1">#l&#39;utilisateur de choisir par l&#39;id le joueUr à modiffier</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l66">
+                  <tt><i>66</i>                 <span class="c1">#si exit fourni</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l71">
+                  <tt><i>71</i>                 <span class="c1">#verification si l&#39;id n&#39;est pas déjà present dans la DB</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l137">
+                  <tt><i>137</i>         <span class="c1">#pas dans le cdc</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E303">
+               <span class="count sev-2">
+                  6
+               </span>
+               <strong>E303:</strong> too many blank lines (2)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l46">
+                  <tt><i>46</i>     <span class="nd">@staticmethod</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l91">
+                  <tt><i>91</i>                     <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l96">
+                  <tt><i>96</i>                     <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l101">
+                  <tt><i>101</i>                     <span class="k">elif</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l123">
+                  <tt><i>123</i>     <span class="nd">@staticmethod</span></tt>
+               </a>
+            </li><li>
+               
+               <a href="controllers.player_controller.source.html#l135">
+                  <tt><i>135</i>     <span class="nd">@staticmethod</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E231">
+               <span class="count sev-2">
+                  2
+               </span>
+               <strong>E231:</strong> missing whitespace after ':'
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Missing whitespace after ':':</p>
+               
+               <a href="controllers.player_controller.source.html#l88">
+                  <tt><i>88</i>                         <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ID&quot;</span><span class="p">:</span><span class="n">new_id</span><span class="p">}</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Missing whitespace after ',':</p>
+               
+               <a href="controllers.player_controller.source.html#l114">
+                  <tt><i>114</i>                     <span class="n">PlayerModel</span><span class="o">.</span><span class="n">update_player_db_by_id</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span><span class="n">player_id</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E117">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E117:</strong> over-indented
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l11">
+                  <tt><i>11</i>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> ##### NEW PLAYER #####&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E225">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E225:</strong> missing whitespace around operator
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l64">
+                  <tt><i>64</i>                 <span class="n">player_id</span><span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Enter the ID of the player to update: &quot;</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E711">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E711:</strong> comparison to None should be 'if cond is not None:'
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l18">
+                  <tt><i>18</i>             <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W291">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>W291:</strong> trailing whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="controllers.player_controller.source.html#l43">
+                  <tt><i>43</i>                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">player_data</span><span class="p">[</span><span class="s1">&#39;firstname&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">player_data</span><span class="p">[</span><span class="s1">&#39;lastname&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> has been add to the database.&quot;</span><span class="p">)</span> </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

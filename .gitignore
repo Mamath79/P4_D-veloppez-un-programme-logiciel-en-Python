@@ -1,8 +1,0 @@
-venv
-database/players.json
-database/tournament.json
-.DS_Store
-__pycache__
-controllers/__pycache__
-models/__pycache__
-views/__pycache__

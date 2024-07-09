@@ -38,11 +38,17 @@ Dans cette section vous pourrez:
 2. Editer les information sur un joueur déjà existant
 3. Afficher la liste des joueurs créés sous forme de tableau et trier ce tableau en fonction de l'Id du joueur , de sa date de naissance  ou de son nom de famille (ordre alphabetique)
 ### 2) Gestion des tournois
+Dans cette section vous pourrez:
 1. Creation d'un nouveau tournoi
 2. Edition des information suivantes: nom, localisation, date de debut et de fin de tournois
 3. Affichage sous forme de tableau de tous les tournois existants
 4. Section servant à la creation des rounds et des matches qui les composent dans un tournois selectionné par son ID
 ### 3) Menu destiné a l'affichage des rapport
+Cette section a pour but d'afficher les rapports suivants:
+1. Liste des joueurs, affichage sous forme de tableau
+2. Liste des tournois, affichage sous forme de tableau
+3. Détails d'un tournois selectionné par son Id, affichage des informations generales du tournois ainsi que d'un tableau resumant les rounds et matchs les composant
+   et egalement un tableau resumant le classement des participants.
 
 ## Creation rapport Flake 8
 

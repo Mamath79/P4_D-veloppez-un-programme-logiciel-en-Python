@@ -2,10 +2,12 @@
 Ce programme a été créé dans le cadre du projet 4 d'OpenClassrooms. Il s'agit d'un gestionnaire de tournois d'échecs.
 ## Installation:
 Veuillez installer Python.
-Lancez ensuite la console, placez vous dans le dossier de votre choix puis clonez ce repository:
+telecharger le fichier zip P4_Developpez-un-programme-logiciel-en-Python-main depuis cette adresse:
 ```
-git@github.com:Mamath79/P4_Developpez-un-programme-logiciel-en-Python.git
+https://github.com/Mamath79/P4_Developpez-un-programme-logiciel-en-Python.git
 ```
+Unzipper le fichier
+
 Placez vous dans le dossier OC_P4_CHESSCONTEST, puis créez un nouvel environnement virtuel:
 ```
 python -m venv env
@@ -32,11 +34,14 @@ python main.py
 Le menu principal est divisé en 3 options.
 ### 1) Gestion des joueurs
 Dans cette section vous pourrez:
-#### 1) creer un profil pour un nouveau joueur
-#### 2) editer les information sur un, joueurs déjà existant
-#### 3) afficher la liste des joueurs créés sous forme de tableau et trier ce tableau en fonction de l'Id du joueur , de sa date de naissance  ou de son nom de famille (ordre alphabetique
-)
+1. Creer un profil pour un nouveau joueur
+2. Editer les information sur un joueur déjà existant
+3. Afficher la liste des joueurs créés sous forme de tableau et trier ce tableau en fonction de l'Id du joueur , de sa date de naissance  ou de son nom de famille (ordre alphabetique)
 ### 2) Gestion des tournois
+1. Creation d'un nouveau tournoi
+2. Edition des information suivantes: nom, localisation, date de debut et de fin de tournois
+3. Affichage sous forme de tableau de tous les tournois existants
+4. Section servant à la creation des rounds et des matches qui les composent dans un tournois selectionné par son ID
 ### 3) Menu destiné a l'affichage des rapport
 
 ## Creation rapport Flake 8

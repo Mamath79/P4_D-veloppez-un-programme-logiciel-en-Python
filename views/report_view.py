@@ -23,9 +23,6 @@ class ReportView:
             table.add_row(row.values())
 
         # Afficher le tableau
-        print("\n\n")
-        print("##### LIST ALL PLAYERS #####")
-        print("\n")
         print(table)
 
     @staticmethod
@@ -48,7 +45,7 @@ class ReportView:
 
         print("\n\n")
         print("##### LIST ALL TOURNAMENT #####")
-        print("\n\n")
+        print("\n")
         ReportView.table_list_tournament(data)
 
     @staticmethod

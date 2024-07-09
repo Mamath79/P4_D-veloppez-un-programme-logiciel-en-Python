@@ -73,7 +73,7 @@ class TournamentController:
         selected_players = []
         while len(selected_players) < user_input:
 
-            print("\n ####  Availabble player list  ####\n")
+            print("\n ####  Available player list  ####\n")
             ReportView.view_list_all_players(available_players)
 
             player_id = input(f"Select player {len(selected_players) + 1} ID: ")

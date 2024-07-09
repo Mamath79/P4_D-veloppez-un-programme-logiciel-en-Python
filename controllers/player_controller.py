@@ -41,7 +41,7 @@ class PlayerController:
             # Insérer le nouveau joueur dans la base de données
             PlayerModel.insert_player_db(player_data)
             print(
-                f"\n {player_data['firstname']} {player_data['lastname']}"
+                f"\n {player_data['firstname']} {player_data['lastname']} "
                 "has been add to the database.")
 
     @staticmethod
@@ -124,6 +124,7 @@ class PlayerController:
             print("no players yet in the database. Please create one")
             return
         else:
+            print("\n\n##### LIST ALL PLAYERS #####\n")
             ReportView.view_list_all_players(players)
             PlayerModel.sorted_player_list()
 

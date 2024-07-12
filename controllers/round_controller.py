@@ -1,5 +1,6 @@
 from models.round_model import RoundModel
 from models.tournament_model import TournamentModel
+from views.message_view import MessageView
 from datetime import datetime
 
 
@@ -19,13 +20,12 @@ class RoundController:
 
         # Vérification du nombre de rounds actuels
         if rounds_list and len(rounds_list) >= 4:
-            print("you reach the 4 round limit,the tournament is over.")
+            MessageView.display_4_round_limit()
             return
 
         # Vérification si le dernier round est terminé
         if rounds_list and not rounds_list[-1].get("round_end"):
-            print("Current round is not finish yet."
-                  "Please edit current round before start another one")
+            MessageView.display_current_round_unfinished()
             return
 
         # attribution de l'id d'un round et eviter la possibilité de doublon

@@ -1,6 +1,8 @@
 from controllers.player_controller import PlayerController
 from controllers.tournament_controller import TournamentController
 from views.menu_view import MenuView
+from views.message_view import MessageView
+from views.user_input import UserInput
 
 
 class Router:
@@ -11,18 +13,17 @@ class Router:
 
         while True:
             MenuView.main_menu()
-            user_input = input("\n enter your choice:")
+            user_input = UserInput.ask_enter_your_choice()
             if user_input == "1":
                 Router.navigate_player_menu()
             elif user_input == "2":
                 Router.navigate_tournement_menu()
             elif user_input == "3":
                 Router.report_menu()
-            elif user_input == "exit":
+            elif user_input.lower() == "exit":
                 exit()
-                break
             else:
-                print("invalid user input")
+                MessageView.display_invalid_user_input()
 
     @staticmethod
     # menu concernant la creation et la gestion des joueurs
@@ -30,7 +31,7 @@ class Router:
 
         while True:
             MenuView.player_menu()
-            user_input = input("\n enter your choice:")
+            user_input = UserInput.ask_enter_your_choice()
             if user_input == "1":
                 PlayerController.add()
             elif user_input == "2":
@@ -40,7 +41,7 @@ class Router:
             elif user_input == "exit":
                 break
             else:
-                print("invalid user input")
+                MessageView.display_invalid_user_input()
 
     @staticmethod
     # menu concernant la creation et la gestion des tournois
@@ -49,7 +50,7 @@ class Router:
 
         while True:
             MenuView.tournament_menu()
-            user_input = input("\n enter your choice:")
+            user_input = UserInput.ask_enter_your_choice()
             if user_input == "1":
                 tournament_controler.add()
             elif user_input == "2":
@@ -62,7 +63,7 @@ class Router:
                 break
 
             else:
-                print("Invalid user input")
+                MessageView.display_invalid_user_input()
 
     @staticmethod
     # menu destiné a l'affichage des rapports sur les joueurs et les tournois
@@ -70,7 +71,7 @@ class Router:
 
         while True:
             MenuView.report_menu()
-            user_input = input("\n enter your choice:")
+            user_input = UserInput.ask_enter_your_choice()
             if user_input == "1":
                 PlayerController.display_list_all_players()
             elif user_input == "2":
@@ -81,4 +82,4 @@ class Router:
                 break
 
             else:
-                print("Invalid user input")
+                MessageView.display_invalid_user_input()

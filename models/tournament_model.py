@@ -1,6 +1,5 @@
 from tinydb import TinyDB, Query
 from datetime import datetime
-from prettytable import PrettyTable
 
 
 class TournamentModel:
@@ -79,7 +78,6 @@ class TournamentModel:
             'ranking': tournament.ranking
             }
         tournament_db.insert(tournament_data)
-        print(f"\n {tournament.name} has been add to the database.")
 
     @staticmethod
     def check_tournament_id(ID_tournament):
@@ -99,76 +97,3 @@ class TournamentModel:
         tournament = Query()
         data.update(selected_tournament_data,
                     tournament.ID_tournament == int(selected_tournament_id))
-
-    @staticmethod
-    def sorted_tournament_list():
-
-        # creer fonction de tri par appel utlisateur
-        # sort_tournaments_by_field(tournaments, fieldname)
-
-        data = TournamentModel.tournament_db()
-        tournaments = data.all()
-        table = PrettyTable()
-
-        fields_to_display = ['ID_tournament',
-                             'name',
-                             'location',
-                             'creation_date',
-                             'start_date',
-                             'end_date'
-                             ]
-        table.field_names = fields_to_display
-
-        tournaments_sorted_name = sorted(tournaments,
-                                         key=lambda x:
-                                         x.get("name"))
-        tournaments_sorted_creation_date = sorted(tournaments,
-                                                  key=lambda x:
-                                                  x.get("creation_date"))
-        tournaments_sorted_ID = sorted(tournaments,
-                                       key=lambda x:
-                                       x.get("ID_tournament"))
-
-        while True:
-            print("[1] sorted the tournament list by name")
-            print("[2] sorted the tournament list by creation_date")
-            print("[3] sorted the tournament list by Id")
-
-            print("\n[exit] return to tournament menu")
-
-            user_input = input("\n enter your choice: ")
-
-            if user_input == '1':
-                table.clear_rows()
-                for row in tournaments_sorted_name:
-                    selected_row = {}
-                    for key, value in row.items():
-                        if key in fields_to_display:
-                            selected_row[key] = value
-                    table.add_row(selected_row.values())
-                print(table)
-
-            elif user_input == "2":
-                table.clear_rows()
-                for row in tournaments_sorted_creation_date:
-                    selected_row = {}
-                    for key, value in row.items():
-                        if key in fields_to_display:
-                            selected_row[key] = value
-                    table.add_row(selected_row.values())
-                print(table)
-
-            elif user_input == "3":
-                table.clear_rows()
-                for row in tournaments_sorted_ID:
-                    selected_row = {}
-                    for key, value in row.items():
-                        if key in fields_to_display:
-                            selected_row[key] = value
-                    table.add_row(selected_row.values())
-                print(table)
-
-            elif user_input == "exit":
-                break
-            else:
-                print("invalid user entry")

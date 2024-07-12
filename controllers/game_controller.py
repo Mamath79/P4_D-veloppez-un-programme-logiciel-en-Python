@@ -1,5 +1,6 @@
 from models.tournament_model import TournamentModel
 from models.game_model import GameModel
+from views.message_view import MessageView
 import random
 
 
@@ -16,8 +17,7 @@ class GameController:
 
         # securité en cas de none existance du tournois avec l'id selectionnée
         if not selected_tournament_data:
-            print(f"No tournament found with this ID: "
-                  f"{selected_tournament_id}")
+            MessageView.display_no_tournament_found(selected_tournament_id)
 
         # recuperation de la liset des joueurs enregistrés.
         registered_players = (
@@ -26,7 +26,7 @@ class GameController:
 
         # verification du nombre minimun de jouers pour un tournois
         if len(registered_players) < 2:
-            print("not enough registered players to start a round")
+            MessageView.display_not_enough_players()
             return
 
         # a l'interieur du tournois selectionné ,
@@ -36,20 +36,14 @@ class GameController:
             selected_tournament_data.get('rounds')
             )
         if not selected_round:
-            print(
-                f"no rounds find on tournament ID : {selected_tournament_id}")
+            MessageView.display_no_round_found(selected_tournament_id)
             return
 
         # recuperartion current round
         current_round = selected_tournament_data.get("current_round")
         selected_round_info = selected_round[int(current_round) - 1]
 
-        # creation des game par appel du model GameModel en fonction
-        # du round si premier round pair aleatoire, si next round
-        # generation des pairs en fonction du classement des joueurs
-        # exeption si game deja jouer ( si pair deja generer )
-
-        # creation des premiers match du premier rpound avec
+        # creation des premiers match du premier round avec
         # attributions des paires de façon aleatoire.
         if current_round == 1:
             # copie de la liste des joueurs enregistrés pour manipulation
@@ -106,8 +100,11 @@ class GameController:
 
                 # verification pour savoir si le match a deja ete joué,
                 # et si oui ne pas generer la paire
-                if (player_1, player_2) in previous_game or (player_2, player_1) in previous_game:
-                    continue
+                for potential_opponent in registered_players_copy:
+                    if (player_1, potential_opponent) in previous_game or \
+                            (potential_opponent, player_1) in previous_game:
+                        player_2 = potential_opponent
+                    break
 
                 # creation du match par appel de la class game
                 game = GameModel(game_id=game_id,
